@@ -1,0 +1,13 @@
+services:
+  flaskapp:
+    container_name: weatherapp
+    image: weatherapp.1.0.0
+    build:
+      context: .
+      dockerfile: flask.dockerfile
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app
+    environment:
+      WEATHER_API: https://api.open-meteo.com/v1/forecast
